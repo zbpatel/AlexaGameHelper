@@ -1,0 +1,98 @@
+{
+  "intents": [
+    {
+      "intent": "RollDiceIntent",
+      "slots": [
+        {
+          "name": "numDice",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "numSides",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "RollDiceWithModifierIntent",
+      "slots": [
+      	{
+      	  "name": "numDice",
+          "type": "AMAZON.NUMBER"
+   		  },
+        {
+          "name": "numSides",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "adding",
+          "type": "MODIFIER_TYPE"
+        },
+        {
+          "name": "modifier",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "SimulateRiskBattleIntent",
+      "slots": [
+      	{
+      	  "name": "partyOneType",
+          "type": "ATTACKER_OR_DEFENDER"
+   		  },
+        {
+          "name": "numPartyOne",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "partyTwoType",
+          "type": "ATTACKER_OR_DEFENDER"
+        },
+        {
+          "name": "numPartyTwo",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "CalculateRiskProbabilityIntent",
+      "slots": [
+      	{
+      	  "name": "partyOneType",
+          "type": "ATTACKER_OR_DEFENDER"
+   		  },
+        {
+          "name": "numPartyOne",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "partyTwoType",
+          "type": "ATTACKER_OR_DEFENDER"
+        },
+        {
+          "name": "numPartyTwo",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+        {
+      "intent": "GetScrabbleWordValueIntent",
+      "slots": [
+        {
+          "name": "word",
+          "type": "WORD"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

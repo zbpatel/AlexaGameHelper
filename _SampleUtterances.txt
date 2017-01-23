@@ -1,0 +1,58 @@
+RollDiceIntent roll {numDice} d {numSides}
+RollDiceIntent roll me {numDice} d {numSides}
+RollDiceIntent generate {numDice} d {numSides}
+RollDiceIntent generate me {numDice} d {numSides}
+RollDiceIntent give {numDice} d {numSides}
+RollDiceIntent give me {numDice} d {numSides}
+
+RollDiceWithModifierIntent roll {numDice} d {numSides} {adding} {modifier}
+RollDiceWithModifierIntent roll me {numDice} d {numSides} {adding} {modifier}
+RollDiceWithModifierIntent generate {numDice} d {numSides} {adding} {modifier}
+RollDiceWithModifierIntent generate me {numDice} d {numSides} {adding} {modifier}
+RollDiceWithModifierIntent give {numDice} d {numSides} {adding} {modifier}
+RollDiceWithModifierIntent give me {numDice} d {numSides} {adding} {modifier}
+
+SimulateRiskBattleIntent simulate {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent simulate {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent simulate {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent simulate {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent play {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent play {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent play {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent play {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent run {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent run {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent run {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent run {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent calculate {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent calculate {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent calculate {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
+SimulateRiskBattleIntent calculate {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
+
+CalculateRiskProbabilityIntent calculate the probability of {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent calculate the probability of {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent calculate the probability of {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent calculate the probability of {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent calculate the probability of {numPartyOne} {partyOneType} beating {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent simulate the probability of {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent simulate the probability of {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent simualte the probability of {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent simulate the probability of {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent simulate the probability of {numPartyOne} {partyOneType} beating {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent what is the probability of {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent what is the probability of {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent what is the probability of {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent what is the probability of {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent what is the probability of {numPartyOne} {partyOneType} beating {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent find the probability of {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent find the probability of {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent find the probability of {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent find the probability of {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
+CalculateRiskProbabilityIntent find the probability of {numPartyOne} {partyOneType} beating {numPartyTwo} {partyTwoType}
+
+GetScrabbleWordValueIntent what is the scrabble value of {word}
+GetScrabbleWordValueIntent find the scrabble value of {word}
+GetScrabbleWordValueIntent calculate the scrabble value of {word}
+GetScrabbleWordValueIntent what is the value of {word} in scrabble
+GetScrabbleWordValueIntent calculate the value of {word} in scrabble
+GetScrabbleWordValueIntent find the value of {word} in scrabble
