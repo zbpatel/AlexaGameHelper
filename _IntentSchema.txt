@@ -1,20 +1,7 @@
 {
   "intents": [
     {
-      "intent": "RollDiceIntent",
-      "slots": [
-        {
-          "name": "numDice",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "numSides",
-          "type": "AMAZON.NUMBER"
-        }
-      ]
-    },
-    {
-      "intent": "RollDiceWithModifierIntent",
+      "intent": "ROLLDICEINTENT",
       "slots": [
       	{
       	  "name": "numDice",
@@ -35,7 +22,7 @@
       ]
     },
     {
-      "intent": "SimulateRiskBattleIntent",
+      "intent": "SIMULATEBATTLEINTENT",
       "slots": [
       	{
       	  "name": "partyOneType",
@@ -56,7 +43,7 @@
       ]
     },
     {
-      "intent": "CalculateRiskProbabilityIntent",
+      "intent": "CALCULATEPROBABILITYINTENT",
       "slots": [
       	{
       	  "name": "partyOneType",
@@ -76,8 +63,17 @@
         }
       ]
     },
+    {
+      "intent": "GETWORDVALUEINTENT",
+      "slots": [
         {
-      "intent": "GetScrabbleWordValueIntent",
+          "name": "word",
+          "type": "WORD"
+        }
+      ]
+    },
+    {
+      "intent": "SPELLWORDINTENT",
       "slots": [
         {
           "name": "word",
