@@ -23,7 +23,7 @@ def roll_dice(num_dice, num_sides, modifier=0):
     # Note: we don't add modifier to the randint range because it is only added once
     my_sum = modifier
     for _ in range(0, num_dice):
-        my_sum += randint(0, num_sides)
+        my_sum += randint(1, num_sides)
     return my_sum
 
 
@@ -41,7 +41,7 @@ def modifier_to_number(modifier_type, modifier_value):
 
 # Generates a user-readable string from a dice roll result
 def create_result_string(roll_value, profile_name="",):
-    if profile_name == "":
+    if not profile_name:
         return "Your roll is " + str(roll_value)
     else:
         return "The roll from " + profile_name + " is " + str(roll_value)

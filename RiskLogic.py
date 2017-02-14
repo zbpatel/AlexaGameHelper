@@ -64,11 +64,11 @@ def create_prob_res_str(prob, recommendation=False):
     # add a recommendation if the user wants one
     if recommendation:
         if prob > .6:
-            prob_string = prob_string + pos_rec_phrases[randint(0, len(pos_rec_phrases))]
+            prob_string = prob_string + pos_rec_phrases[randint(0, len(pos_rec_phrases)-1)]
         elif .4 <= prob <= .6:
-            prob_string = prob_string + mid_rec_phrases[randint(0, len(mid_rec_phrases))]
+            prob_string = prob_string + mid_rec_phrases[randint(0, len(mid_rec_phrases)-1)]
         else:
-            prob_string = prob_string + neg_rec_phrases[randint(0, len(neg_rec_phrases))]
+            prob_string = prob_string + neg_rec_phrases[randint(0, len(neg_rec_phrases)-1)]
 
     return prob_string
 # ---------------Helper functions that should not be used outside of this file---------------
@@ -162,7 +162,7 @@ def find_battle_probability(num_attackers, num_defenders):
     (may be adapted later to include full probability calculations)
     note this method adjusts for the attacker that must be left behind
     """
-    if num_attackers > 12 or num_attackers <= 1 or  num_defenders > 11 or num_defenders < 0:
+    if num_attackers > 12 or num_attackers <= 1 or  num_defenders > 11 or num_defenders < 1:
         return -1
     else:
         return prob_chart[num_attackers - 2][num_defenders - 1]
