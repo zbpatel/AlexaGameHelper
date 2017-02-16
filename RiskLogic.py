@@ -9,6 +9,10 @@ from random import randint
 # importing methods for creating final, Alexa readable responses
 from SpeechHelpers import build_speechlet_response, build_response
 
+# defining a set of variables that we can use to internally specify our error types
+INPUT_NOT_NUMBER = "INPUT_NOT_NUMBER"
+NO_INPUT = "NO_INPUT"
+
 # --------------- Complete behavior functions that can be called by other files ---------------
 def battle_handler(intent):
     intent = intent["slots"]
@@ -16,14 +20,19 @@ def battle_handler(intent):
     # Reads the number of attackers and defenders from the intent
     num_attackers, num_defenders = get_num_att_def(intent)
 
-    # simulates a battle to get the final number of attackers and defenders
-    final_attackers, final_defenders, num_rounds = simulate_battle(num_attackers, num_defenders)
+    if num_attackers == NO_INPUT or num_defenders == NO_INPUT or \
+       num_attackers == INPUT_NOT_NUMBER or num_defenders == INPUT_NOT_NUMBER:
+        card_title = "Couldn't simulate battle"
+        battle_res_str = "I'm sorry, I could not understand your request."
+    else:
+        # simulates a battle to get the final number of attackers and defenders
+        final_attackers, final_defenders, num_rounds = simulate_battle(num_attackers, num_defenders)
 
-    # generates a battle summary string from the results
-    battle_res_string = create_battle_res_string(num_attackers, num_defenders, final_attackers, final_defenders)
+        # generates a battle summary string from the results
+        battle_res_string = create_battle_res_string(num_attackers, num_defenders, final_attackers, final_defenders)
 
-    # setting the title of the card that should appear on the phone app
-    card_title = "Battle Simulated"
+        # setting the title of the card that should appear on the phone app
+        card_title = "Battle Simulated"
 
     session_attributes = {}
     # constructs and returns a completed Alexa response
@@ -35,18 +44,23 @@ def battle_probability_handler(intent):
     # read the number of attackers and defenders from the intent
     num_attackers, num_defenders = get_num_att_def(intent)
 
-    # search the probability table for the corresponding probability
-    prob = find_battle_probability(num_attackers, num_defenders)
+    if num_attackers == NO_INPUT or num_defenders == NO_INPUT or \
+       num_attackers == INPUT_NOT_NUMBER or num_defenders == INPUT_NOT_NUMBER:
+        card_title = "Couldn't calculate battle probabilities"
+        battle_res_str = "I'm sorry, I could not understand your request."
+    else:
+        # search the probability table for the corresponding probability
+        prob = find_battle_probability(num_attackers, num_defenders)
 
-    # construct a statement about the probability
-    prob_res_str = create_prob_res_str(prob)
+        # construct a statement about the probability
+        prob_res_str = create_prob_res_str(prob)
 
-    # setting the title of the card that should appear on the phone app
-    card_title = "Battle Probability Calculated"
+        # setting the title of the card that should appear on the phone app
+        card_title = "Battle Probability Calculated"
 
     session_attributes = {}
     # construct a reply to the user
-    return build_response(session_attributes, build_speechlet_response(card_title, prob_res_str, None, True))
+    return build_response(session_attributes, build_speechlet_response(card_title, prob_res_str, "", True))
 
 # giving several possible phrases for variety (note, these are only given if the user asks for them)
 pos_rec_phrases = ["I suggest you attack.", "The odds are in favor of attacking.", "You are likely to win."]
@@ -82,8 +96,18 @@ def get_num_att_def(intent):
     Reads the number of attackers and defenders from an intent, and returns them in an ordered pair"
     """
     # Determines in which order the user listed attackers and defenders
-    num_party_one, num_party_two = int(intent["numPartyOne"]["value"]), int(intent["numPartyTwo"]["value"])
-    party1Type, party2Type = int(intent["partyOneType"]["value"]), int(intent["partyTwoType"]["value"])
+    # Establish defaults
+    num_party_one, num_party_two = NO_INPUT, NO_INPUT
+    party1Type, party2Type = "attackers", "defenders"
+    # Look into slots and pull only ones that are polulated
+    if "numPartyOne" in intent and "value" in intent["numPartyOne"]:
+        num_party_one = process_num(intent["numPartyOne"]["value"])
+    if "numPartyTwo" in intent and "value" in intent["numPartyTwo"]:
+        num_party_two = process_num(intent["numPartyTwo"]["value"])
+    if "partyOneType" in intent and "value" in intent["partyOneType"]:
+        party1Type = process_type(intent["partyOneType"]["value"])
+    if "partyTwoType" in intent and "value" in intent["partyTwoType"]:
+        party2Type = process_type(intent["partyTwoType"]["value"])
 
     # Attacker / Defender Keywords (to match custom type)
     attacker_keywords = {"attacker", "attacking", "attackers"}
@@ -183,3 +207,30 @@ prob_chart = [
 [1.000, 0.990, 0.967, 0.930, 0.873, 0.808, 0.726, 0.646, 0.558, 0.480],
 [1.000, 0.994, 0.981, 0.954, 0.916, 0.861, 0.800, 0.724, 0.650, 0.568]
 ]
+
+# method to convert an intent value into an integer, and trap errors
+def process_num(num):
+    """
+    Attempts to convert the provided num (as a string) into an integer
+    if the input is "?" (what Alexa passes if there is no input), return NO_INPUT
+    if the input errors when attempting to convert to an intger, return INPUT_NOT_NUMBER
+    otherwise, return the number converted to an int
+    """
+    if num != "?" and num != None:
+        try:
+            num = int(num)
+        except ValueError:
+            return INPUT_NOT_NUMBER
+        return num
+    return NO_INPUT
+
+# method to convert an intent value into a type, and trap errors
+def process_type(type):
+    """
+    Attempts to validate the provided type (as a string)
+    if the input is "?" (what Alexa passes if there is no input), return NO_INPUT
+    otherwise, return the type as-is
+    """
+    if type != "?" and type != None:
+        return type
+    return NO_INPUT
