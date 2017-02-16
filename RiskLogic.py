@@ -11,6 +11,7 @@ from SpeechHelpers import build_speechlet_response, build_response
 
 # --------------- Complete behavior functions that can be called by other files ---------------
 def battle_handler(intent):
+    intent = intent["slots"]
     # Taking advantage of python's ability to return multiple items
     # Reads the number of attackers and defenders from the intent
     num_attackers, num_defenders = get_num_att_def(intent)
@@ -30,6 +31,7 @@ def battle_handler(intent):
     return build_response(session_attributes, build_speechlet_response(card_title, battle_res_string, None, True))
 
 def battle_probability_handler(intent):
+    intent = intent["slots"]
     # read the number of attackers and defenders from the intent
     num_attackers, num_defenders = get_num_att_def(intent)
 

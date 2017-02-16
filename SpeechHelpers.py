@@ -6,7 +6,7 @@ Developed by Zac Patel on 1/10/17
 Created using template: Alexa Skills Blueprint for Python 2.7
 """
 # reading the version from the main file so it is easier to update
-from GameHelperMain import VERSION
+#from GameHelperMain import VERSION
 
 # --------------- Helpers that build all of the responses ----------------------
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
@@ -21,8 +21,8 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         },
         'card': {
             'type': 'Simple',
-            'title': "SessionSpeechlet - " + title,
-            'content': "SessionSpeechlet - " + output
+            'title': title,
+            'content': output
         },
         'reprompt': {
             'outputSpeech': {
@@ -40,7 +40,7 @@ def build_response(session_attributes, speechlet_response):
     necessary session attributes and returns the finished JSON that Alexa will read out to the user
     """
     return {
-        'version': VERSION,
+        'version': '1.0',
         'sessionAttributes': session_attributes,
         'response': speechlet_response
     }

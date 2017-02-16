@@ -42,17 +42,3 @@ CALCULATEPROBABILITYINTENT find the probability of {numPartyOne} {partyOneType} 
 CALCULATEPROBABILITYINTENT find the probability of {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
 CALCULATEPROBABILITYINTENT find the probability of {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
 CALCULATEPROBABILITYINTENT find the probability of {numPartyOne} {partyOneType} beating {numPartyTwo} {partyTwoType}
-
-GETWORDVALUEINTENT what is the scrabble value of {word}
-GETWORDVALUEINTENT find the scrabble value of {word}
-GETWORDVALUEINTENT calculate the scrabble value of {word}
-GETWORDVALUEINTENT what is the value of {word} in scrabble
-GETWORDVALUEINTENT calculate the value of {word} in scrabble
-GETWORDVALUEINTENT find the value of {word} in scrabble
-
-SPELLWORDINTENT how do you spell {word}
-SPELLWORDINTENT spell {word}
-SPELLWORDINTENT spell {word} for me
-SPELLWORDINTENT how is {word} spelled
-SPELLWORDINTENT what is the spelling for {word}
-SPELLWORDINTENT can you spell {word}

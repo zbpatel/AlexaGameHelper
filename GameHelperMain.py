@@ -8,9 +8,6 @@ Developed by Zac Patel on 1/10/17
 
 Created using template: Alexa Skills Blueprint for Python 2.7
 """
-# Code version number: (so it can be accessed from other files easily)
-VERSION = "A"
-
 # import for default (amazon) behavior
 from __future__ import print_function
 
@@ -19,7 +16,11 @@ from __future__ import print_function
 from SpeechHelpers import build_speechlet_response, build_response
 from RiskLogic import battle_handler, battle_probability_handler
 from DiceLogic import roll_dice_handler
+
 #from WordHelper import word_value_handler, word_checker_handler, word_spell_handle
+
+# Code version number: (so it can be accessed from other files easily)
+VERSION = "A"
 
 # Event Handler Methods
 def get_welcome_response():
@@ -82,11 +83,11 @@ def on_intent(intent_request, session):
 
     # Selecting different behavior for different intent types
     if intent_name == "ROLLDICEINTENT":
-        return roll_dice_intent_handler(intent["slots"])
+        return roll_dice_handler(intent)
     elif intent_name == "SIMULATEBATTLEINTENT":
         return battle_handler(intent["slots"])
     elif intent_name == "CALCULATEBATTLEPROBABILITYINTENT":
-        return battle_probability_handler(intent["slots"])
+        return battle_probability_handler(intent)
     # Amazon's built in intent types below:
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()

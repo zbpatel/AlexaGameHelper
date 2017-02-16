@@ -49,9 +49,10 @@ def roll_dice_handler(intent):
     # (this might be changed later to allow the user to easily repeat a single roll_dice)
     should_end_session = True
 
+    reprompt_text = ""
     # Note: we do not set a reprompt_text because in most use cases, the user
     # will only want to roll one dice at a time (hence, should_end_session is True)
-    sp_res = build_speechlet_response(card_title, res_str, session_attributes, should_end_session)
+    sp_res = build_speechlet_response(card_title, res_str, reprompt_text, should_end_session)
     return build_response(session_attributes, sp_res)
 
 def roll_dice(num_dice, num_sides, modifier=0):

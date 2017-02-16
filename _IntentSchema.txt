@@ -64,24 +64,6 @@
       ]
     },
     {
-      "intent": "GETWORDVALUEINTENT",
-      "slots": [
-        {
-          "name": "word",
-          "type": "WORD"
-        }
-      ]
-    },
-    {
-      "intent": "SPELLWORDINTENT",
-      "slots": [
-        {
-          "name": "word",
-          "type": "WORD"
-        }
-      ]
-    },
-    {
       "intent": "AMAZON.HelpIntent"
     },
     {
