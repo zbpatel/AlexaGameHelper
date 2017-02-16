@@ -30,12 +30,14 @@ def roll_dice_handler(intent):
     # Calculating the value of the dice roll via roll_dice
     # NOTE: we don't do any special error trapping here, because if any of the values is not an int
     # I.E. an error message, roll_dice will exit before it errors
+    if modifier == NO_INPUT:
+        modifier = 0
     roll_value = roll_dice(num_dice, num_sides, modifier)
 
     if roll_value == BAD_ROLL_INPUT:
-        card_title = "Coudldn't Roll Dice"
+        card_title = "Couldn't Roll Dice"
         res_str = "I'm sorry, I could not understand your request."
-    else:      
+    else:
         # the title of the card that appears in the alexa phone app
         card_title = "Dice Rolled"
 
@@ -62,7 +64,7 @@ def roll_dice(num_dice, num_sides, modifier=0):
     """
     # double checking to see if bad input "slipped through the cracks"
     # the functions that grab these numbers from the intent should adequately trap though
-    if (not isinstance(num_dice, int)) or (not isinstance(num_sides, int)) or (not isinstance(modifier, int)):
+    if (not isinstance(num_dice, int)) or (not isinstance(num_sides, int)) or (not isinstance(modifier, int) and modifier != NO_INPUT):
         return BAD_ROLL_INPUT
     # Note: we don't add modifier to the randint range because it is only added once
     my_sum = modifier
@@ -109,21 +111,28 @@ def get_dice_from_intent(intent):
     """
     num_dice, num_sides, modifier = NO_INPUT, NO_INPUT, NO_INPUT
 
-    if "numDice" in intent:
+    try:
         num_dice = process_num(intent["numDice"]["value"])
+    except:
+        num_dice = NO_INPUT
 
-    if "numSides" in intent:
+    try:
         num_sides = process_num(intent["numSides"]["value"])
+    except:
+        num_sides = NO_INPUT
 
-    # this is really the only case that needs checking on a proper call
+    # this is really the only case that needs checking on a "proper"" call
     if "modifier" in intent:
-        modifier = process_num(intent["modifier"]["value"])
+        try:
+            modifier = process_num(intent["modifier"]["value"])
 
-        mod_type = NO_INPUT
-        # pulling the modifier out of the intent
-        if "adding" in intent:
-            mod_type = intent["adding"]["value"]
-        modifier = modifier_to_number(mod_type, modifier)
+            mod_type = NO_INPUT
+            # pulling the modifier out of the intent
+            if "adding" in intent:
+                mod_type = intent["adding"]["value"]
+            modifier = modifier_to_number(mod_type, modifier)
+        except:
+            mod_type = NO_INPUT
 
     return num_dice, num_sides, modifier
 

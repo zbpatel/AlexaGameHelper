@@ -86,11 +86,11 @@ def get_num_att_def(intent):
     party1Type, party2Type = int(intent["partyOneType"]["value"]), int(intent["partyTwoType"]["value"])
 
     # Attacker / Defender Keywords (to match custom type)
-    attacker_keywords = {"attacking", "attackers"}
-    defender_keywords = {"defender", "defending"}
+    attacker_keywords = {"attacker", "attacking", "attackers"}
+    defender_keywords = {"defender", "defending", "defenders"}
 
     # default behavior for this statement is attackers first, then defenders second
-    if (party1Type in defender_keywords):
+    if party1Type in defender_keywords:
         return num_party_two, num_party_one
     else:
         return num_party_one, num_party_two

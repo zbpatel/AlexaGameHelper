@@ -5,6 +5,13 @@ ROLLDICEINTENT generate me {numDice} d {numSides} {adding} {modifier}
 ROLLDICEINTENT give {numDice} d {numSides} {adding} {modifier}
 ROLLDICEINTENT give me {numDice} d {numSides} {adding} {modifier}
 
+ROLLDICEINTENT roll {numDice} d {numSides}
+ROLLDICEINTENT roll me {numDice} d {numSides}
+ROLLDICEINTENT generate {numDice} d {numSides}
+ROLLDICEINTENT generate me {numDice} d {numSides} 
+ROLLDICEINTENT give {numDice} d {numSides} 
+ROLLDICEINTENT give me {numDice} d {numSides} 
+
 SIMULATEBATTLEINTENT simulate {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
 SIMULATEBATTLEINTENT simulate {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
 SIMULATEBATTLEINTENT simulate {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
