@@ -85,8 +85,8 @@ def on_intent(intent_request, session):
     if intent_name == "ROLLDICEINTENT":
         return roll_dice_handler(intent)
     elif intent_name == "SIMULATEBATTLEINTENT":
-        return battle_handler(intent["slots"])
-    elif intent_name == "CALCULATEBATTLEPROBABILITYINTENT":
+        return battle_handler(intent)
+    elif intent_name == "CALCULATEPROBABILITYINTENT":
         return battle_probability_handler(intent)
     # Amazon's built in intent types below:
     elif intent_name == "AMAZON.HelpIntent":
