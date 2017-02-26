@@ -29,7 +29,13 @@ def get_welcome_response():
     """
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "I can help with dice and Risk."
+    speech_output = """
+    Welcome to Game Helper.
+    I can help you generate dice rolls of any number of dice, of any number of sides, while optionally adding a modifier to the roll.
+    I can also simulate battles of any number of attackers versus any number of defenders.
+    Finally, I can calculate the probability of winning a battle of 2 to 12 attackers versus 1 to 11 attackers.
+    Go ahead and ask me to roll dice, simulate battles, or calculate probabilities of winning.
+    """
 
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
@@ -37,6 +43,31 @@ def get_welcome_response():
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
+
+def get_help_response():
+    """
+    Called if the user requests help
+    """
+    session_attributes = {}
+    card_title = "Help"
+    speech_output = """
+    I can help you generate dice rolls of any number of dice, of any number of sides, while optionally adding a modifier to the roll.
+    For example, you can say, roll me 5 die 6 plus 4.
+    I can also help simulate board game battle results similar to the game Risk.
+    I have two capabilities in this area.
+    First, I can simulate battles of any number of attackers versus any number of defenders.
+    For example, you can say, simulate 5 attackers versus 4 defenders.
+    Second, I can also calculate the probability of winning a battle of 2 to 12 attackers versus 1 to 11 attackers.
+    For example, you can say, find the probability of 10 attackers beating 7 defenders. 
+    """
+
+    # If the user either does not reply to the welcome message or says something
+    # that is not understood, they will be prompted again with this text.
+    reprompt_text = "Can I help you with your game?"
+    should_end_session = False
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
 
 def handle_session_end_request():
     """
@@ -90,7 +121,7 @@ def on_intent(intent_request, session):
         return battle_probability_handler(intent)
     # Amazon's built in intent types below:
     elif intent_name == "AMAZON.HelpIntent":
-        return get_welcome_response()
+        return get_help_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
         return handle_session_end_request()
     else:

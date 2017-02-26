@@ -1,10 +1,16 @@
-ROLLDICEINTENT roll me {numDice} d {numSides} {adding} {modifier}
-ROLLDICEINTENT generate me {numDice} d {numSides} {adding} {modifier}
-ROLLDICEINTENT give me {numDice} d {numSides} {adding} {modifier}
+ROLLDICEINTENT roll {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT generate {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT give {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT roll me {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT generate me {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT give me {numDice} die {numSides} {adding} {modifier}
 
-ROLLDICEINTENT roll me {numDice} d {numSides}
-ROLLDICEINTENT generate me {numDice} d {numSides} 
-ROLLDICEINTENT give me {numDice} d {numSides} 
+ROLLDICEINTENT roll {numDice} die {numSides}
+ROLLDICEINTENT generate {numDice} die {numSides} 
+ROLLDICEINTENT give {numDice} die {numSides} 
+ROLLDICEINTENT roll me {numDice} die {numSides}
+ROLLDICEINTENT generate me {numDice} die {numSides} 
+ROLLDICEINTENT give me {numDice} die {numSides} 
 
 SIMULATEBATTLEINTENT simulate {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
 SIMULATEBATTLEINTENT simulate {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
