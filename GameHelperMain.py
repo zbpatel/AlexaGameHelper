@@ -33,7 +33,7 @@ def get_welcome_response():
     Welcome to Game Helper.
     I can help you generate dice rolls of any number of dice, of any number of sides, while optionally adding a modifier to the roll.
     I can also simulate battles of any number of attackers versus any number of defenders.
-    Finally, I can calculate the probability of winning a battle of 2 to 12 attackers versus 1 to 11 attackers.
+    Finally, I can calculate the probability of winning a battle of 2 to 12 attackers versus 1 to 11 defenders.
     Go ahead and ask me to roll dice, simulate battles, or calculate probabilities of winning.
     """
 
@@ -53,11 +53,11 @@ def get_help_response():
     speech_output = """
     I can help you generate dice rolls of any number of dice, of any number of sides, while optionally adding a modifier to the roll.
     For example, you can say, roll me 5 die 6 plus 4.
-    I can also help simulate board game battle results similar to the game Risk.
+    I can also help simulate board game battle results similar to the board game Risk.
     I have two capabilities in this area.
     First, I can simulate battles of any number of attackers versus any number of defenders.
     For example, you can say, simulate 5 attackers versus 4 defenders.
-    Second, I can also calculate the probability of winning a battle of 2 to 12 attackers versus 1 to 11 attackers.
+    Second, I can also calculate the probability of winning a battle of 2 to 12 attackers versus 1 to 11 defenders.
     For example, you can say, find the probability of 10 attackers beating 7 defenders. 
     """
 
