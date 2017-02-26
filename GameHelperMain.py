@@ -31,9 +31,9 @@ def get_welcome_response():
     card_title = "Welcome"
     speech_output = """
     Welcome to Game Helper.
-    I can help you generate dice rolls of any number of dice, of any number of sides, while optionally adding a modifier to the roll.
-    I can also simulate battles of any number of attackers versus any number of defenders.
-    Finally, I can calculate the probability of winning a battle of 2 to 12 attackers versus 1 to 11 defenders.
+    I can help you generate dice rolls.
+    I can also simulate battles of a number of attackers versus defenders.
+    Finally, I can calculate the probability of winning a battle between attackers and defenders.
     Go ahead and ask me to roll dice, simulate battles, or calculate probabilities of winning.
     """
 
@@ -59,6 +59,7 @@ def get_help_response():
     For example, you can say, simulate 5 attackers versus 4 defenders.
     Second, I can also calculate the probability of winning a battle of 2 to 12 attackers versus 1 to 11 defenders.
     For example, you can say, find the probability of 10 attackers beating 7 defenders. 
+    Go ahead and ask me to roll dice, simulate battles, or calculate probabilities of winning.
     """
 
     # If the user either does not reply to the welcome message or says something
