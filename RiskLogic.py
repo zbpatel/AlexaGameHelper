@@ -37,7 +37,7 @@ def battle_handler(intent):
     session_attributes = {}
     # constructs and returns a completed Alexa response
     # note: no reprompt text is given because in the course of a game, a battle only runs once
-    return build_response(session_attributes, build_speechlet_response(card_title, battle_res_string, None, True))
+    return build_response(session_attributes, build_speechlet_response(card_title, battle_res_string, "", True))
 
 def battle_probability_handler(intent):
     intent = intent["slots"]

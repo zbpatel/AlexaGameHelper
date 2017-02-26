@@ -1,16 +1,16 @@
-ROLLDICEINTENT roll {numDice} d {numSides} {adding} {modifier}
-ROLLDICEINTENT roll me {numDice} d {numSides} {adding} {modifier}
-ROLLDICEINTENT generate {numDice} d {numSides} {adding} {modifier}
-ROLLDICEINTENT generate me {numDice} d {numSides} {adding} {modifier}
-ROLLDICEINTENT give {numDice} d {numSides} {adding} {modifier}
-ROLLDICEINTENT give me {numDice} d {numSides} {adding} {modifier}
+ROLLDICEINTENT roll {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT generate {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT give {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT roll me {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT generate me {numDice} die {numSides} {adding} {modifier}
+ROLLDICEINTENT give me {numDice} die {numSides} {adding} {modifier}
 
-ROLLDICEINTENT roll {numDice} d {numSides}
-ROLLDICEINTENT roll me {numDice} d {numSides}
-ROLLDICEINTENT generate {numDice} d {numSides}
-ROLLDICEINTENT generate me {numDice} d {numSides} 
-ROLLDICEINTENT give {numDice} d {numSides} 
-ROLLDICEINTENT give me {numDice} d {numSides} 
+ROLLDICEINTENT roll {numDice} die {numSides}
+ROLLDICEINTENT generate {numDice} die {numSides} 
+ROLLDICEINTENT give {numDice} die {numSides} 
+ROLLDICEINTENT roll me {numDice} die {numSides}
+ROLLDICEINTENT generate me {numDice} die {numSides} 
+ROLLDICEINTENT give me {numDice} die {numSides} 
 
 SIMULATEBATTLEINTENT simulate {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
 SIMULATEBATTLEINTENT simulate {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
@@ -36,7 +36,7 @@ CALCULATEPROBABILITYINTENT calculate the probability of {numPartyOne} {partyOneT
 CALCULATEPROBABILITYINTENT calculate the probability of {numPartyOne} {partyOneType} beating {numPartyTwo} {partyTwoType}
 CALCULATEPROBABILITYINTENT simulate the probability of {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
 CALCULATEPROBABILITYINTENT simulate the probability of {numPartyOne} {partyOneType} versus {numPartyTwo} {partyTwoType}
-CALCULATEPROBABILITYINTENT simualte the probability of {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
+CALCULATEPROBABILITYINTENT simulate the probability of {numPartyOne} {partyOneType} fighting {numPartyTwo} {partyTwoType}
 CALCULATEPROBABILITYINTENT simulate the probability of {numPartyOne} {partyOneType} against {numPartyTwo} {partyTwoType}
 CALCULATEPROBABILITYINTENT simulate the probability of {numPartyOne} {partyOneType} beating {numPartyTwo} {partyTwoType}
 CALCULATEPROBABILITYINTENT what is the probability of {numPartyOne} {partyOneType} vs {numPartyTwo} {partyTwoType}
